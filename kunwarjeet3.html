@@ -1,210 +1,77 @@
 <!DOCTYPE html>
+<link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Jaro:opsz@6..72&family=Sevillana&display=swap" rel="stylesheet">
+
+
+<link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
+
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <title>Anna Dowlin</title>
+  <style>
+    body {
+      text-align: center;
+      background: url("https://t4.ftcdn.net/jpg/02/44/87/35/240_F_244873590_a69hjCnsOjGfNRgzuol3N8C0cLDd4gZV.jpg");
+      background-size: cover;
+      background-position: center;
+      color: orange;
+      font-family: helvetica;
+    }
+    p {
+      font-size: 22px;
+      font-family: "Parkinsans", sans-serif;
+    }
+	input {
+	      border: 0;
+	      padding: 10px;
+	      font-size: 20px;
+	      font-family: "Jaro", sans-serif;
+	    }
+	    input[type="submit"] {
+	      background: black;
+	      color: red;
+	    }
+	    img {
+	      border-radius: 300px;
+	      }
+		  
+	  </style>
+	</head>
+	<body>
+	  <img src="https://static.wikia.nocookie.net/naruto/images/1/17/Naruto%27s_Baryon_Mode.png/revision/latest/scale-to-width-down/350?cb=20210926184438">
+	  <p>Hi! I'm Naruto Uzumaki,from village hidden in leafs. Say hello!</p>
+	  <input id="Name" placeholder="Your name">
+	  <input id="Email" placeholder="Your email">
+	  <input id="submit" type="submit">
+	  <script type="module">
+	    // Import the functions you need from the SDKs you need
+	    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+		import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
+	    // TODO: Add SDKs for Firebase products that you want to use
+	    // https://firebase.google.com/docs/web/setup#available-libraries
 
+	    // Your web app's Firebase configuration
+	    const firebaseConfig = {
+	      apiKey: "AIzaSyA4hgMQbazAhvv-yFUb1_vERPMgXApcXVs",
+	      authDomain: "kunwarjeet-singhk.firebaseapp.com",
+	      projectId: "kunwarjeet-singhk",
+	      storageBucket: "kunwarjeet-singhk.firebasestorage.app",
+	      messagingSenderId: "644736163402",
+	      appId: "1:644736163402:web:62171015d027bbeb47d0b3"
+	    };
 
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-
-<script src="/assets/jquery.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-
-
-<style>
-body {
-  font-family: helvetica, sans-serif;
-  margin: 0 auto;
-  max-width: 600px;
-  background: #2323;
-}
-div {
-  height: 700px;
-  background-size: cover;
-  position: relative;
-  margin: 40px 0 0 0;
-  border-radius: 12px;
-}
-h1 {
-font-family: "Bebas Neue", sans-serif;
-  text-align: center;
-  font-size: 75px;
-  color: blue;
-  margin: 60px 0 0 0;
-  
-}
-h2 {
-  font-family: "Oswald", sans-serif;
-  text-align: center;
-  color: red;
-  margin: 0px 0 70px 0;
-  
-}
-p {
-  font-family: "Josefin Sans", sans-serif;
-  color: rgba(25,255,255,1);
-  background: black;
-  background: linear-gradient(bottom, rgba(0,0,255,1), rgba(0,0,255,.4));
-  background: -webkit-linear-gradient(bottom, rgba(0,0,255,1), rgba(0,0,0,.4));
-  background: -moz-linear-gradient(bottom, rgba(0,0,255,1), rgba(0,0,255,.4
-  ));
-  padding: 10px;
-  line-height: 28px;
-  text-align: justify;
-  position: absolute;
-  bottom: 0;
-  margin: 0;
-  height: 30px;
-  transition: height .5s;
-  -webkit-transition: height .5s;
-  -moz-transition: height .5s;
-
-}
-
-small {
-  opacity: 0;
-}
-
-.show-description p {
-  height: 150px;
-}
-
-.show-description small {
-  opacity: 1;
-}
-
-.first{
-  background-image: url("https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781421518626/naruto-vol-26-9781421518626_hr.jpg");
-}
-.second{
-  background-image: url("https://m.media-amazon.com/images/I/9164nVAWnlL._AC_UF1000,1000_QL80_.jpg");
-}
-.dessert{
-  background-image: url("https://target.scene7.com/is/image/Target/GUEST_1fe44d9d-4fae-449e-99ea-5312b817d2ee?wid=488&hei=488&fmt=pjpeg");
-}
-.price {
-  float: right;
-}
-@media (max-width: 500px) {
-  h1 {
-    font-size: 50px;
-    margin-top: 20px;
-    line-height: 40px;
-  }
-  h2 {
-    font-size: 20px;
-    margin: 20px 0 30px 0;
-  }
-  div {
-    margin: 20px 12px 0 12px;
-  }
-  p {
-    font-size: 20px;
-    line-height: 24px;
-  }
-  small {
-    font-size: 16px;
-  }
-}
-input {
-	font-size: 22px;
-}
-</style>
-
-</head>
-
-<body>
-<h1>Comic book's</h1>
-<h2>A New York City Comic Book Seller</h2>
-<div class="first">
-<input class="quantities" type="number" min="0" style="width: 50px">
-  <p>Naruto,first comic book. <span class="price">$12</span><br />
-  <small>Naruto comic book is fun it tell what about his past and future or we could about his story how the nine tailed beast is sealed inside him and what happend to him and his parents,and it also gives a lesson that is to chase your dream and never give up. </small></p>
-</div>
-
-<div class="second">
-<input class="quantities",type="number" min="0" style="width: 50px">
-  <p>Venom,Comic Book.<span class="price">$10</span><br />
-  <small>Venom comic book is fun and scary too,it mainly talks about his life,and he is a alien that is in a body,that gives powers if it enters in any type of body.</small></p>
-</div>
-  
-<div class="dessert">
-<input class="quantities",type="number" min="0" style="width: 50px">
-  <p>Spiderman,Comic Book. <span class="price">$8</span><br />
-  <small>Spider man comic book it also tell the story abut him,and how he liked a girl and he got a bit by a geneticically modified spider and he becaomes spiderman.</small></p>
-</div>
-
-
-
-
-<br><br>
-<input id="Name" placeholder="Your name">
-<input id="Email" placeholder="Your email">
-<input id="submit" type="submit">
-<br><br>
-
-<script>
-  $('div').on('click', function() {
-      $(this).toggleClass('show-description');
-  });
-</script>
-
-
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-  import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyC-2FR73vVytZZTskvMasyMiLwD7sCwyOw",
-    authDomain: "kunwarjeet3-20721.firebaseapp.com",
-    projectId: "kunwarjeet3-20721",
-    storageBucket: "kunwarjeet3-20721.firebasestorage.app",
-    messagingSenderId: "672220028006",
-    appId: "1:672220028006:web:9c97d9824d6470fc1761a7"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const db = getDatabase(app);
-  const Name = document.querySelector("#Name") 
+	    // Initialize Firebase
+	    const app = initializeApp(firebaseConfig);
+		const db = getDatabase(app);
+		const Name = document.querySelector("#Name") 
 		const Email = document.querySelector("#Email")
 		document.querySelector('#submit').addEventListener('click', Submit)
-        const quantities = document.querySelectorAll(".quantities") 
-         const prices = document.querySelectorAll(".price") 
-        const itemsList = ["Naruto Comic Book", "Venom Comic Book", "Spider Man Comic Book"]
-  
 		
 		
 		function Submit() {
 		  const timestamp = buildTimestamp()
-		  let total = 0 
-	  	  let cart = { }
-	  	  for  (let i=0; i<quantities.length; i=i+1) {
-	  	  if (quantities[i].value != "0" && quantities[i].value != "") {
-		  let price = prices[i].innerHTML.replace('$', '')
-		  total = total + quantities[i].value * price 	
-	  	  cart[itemsList[i]] = parseInt(quantities[i].value) 
-			
-	  	  	}
-	  	  	quantities[i].value = ""
-	  	  }
-			
 	  
 		  set(ref(db, timestamp), {
 			  Name: Name.value,
 		      email: Email.value,
-	          cart: cart,
-              totalPrice: total,
-              paid: "not yet",
-			  
 		  });
 
 		  Name.value = ""
@@ -245,7 +112,6 @@ input {
 			}
 			return units
 		}
-</script>
-
-
-</body>
+		
+	  </script>
+	  </body>
