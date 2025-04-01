@@ -86,8 +86,12 @@ small {
 .dessert{
   background-image: url("https://target.scene7.com/is/image/Target/GUEST_1fe44d9d-4fae-449e-99ea-5312b817d2ee?wid=488&hei=488&fmt=pjpeg");
 }
+
 .price {
   float: right;
+}
+.forth{
+   background-image: url("https://m.media-amazon.com/images/I/81OYRZEQG7L._AC_UF1000,1000_QL80_.jpg");
 }
 @media (max-width: 500px) {
   h1 {
@@ -135,9 +139,14 @@ input {
 <div class="dessert">
 <input class="quantities",type="number" min="0" style="width: 50px">
   <p>Spiderman,Comic Book. <span class="price">$8</span><br />
-  <small>Spider man comic book it also tell the story abut him,and how he liked a girl and he got a bit by a geneticically modified spider and he becaomes spiderman.</small></p>
+  <small>Spider man comic book it also tell the story about him,and how he liked a girl and he got a bit by a geneticically modified spider and he becaomes spiderman.</small></p>
 </div>
 
+<div class="forth">
+<input class="quantities",type="number" min="0" style="width: 50px">
+  <p> Solo leveling,Comic book.<span class="price">$14</span><br />
+  <small>Solo Leveling Comic Book is a vey intrasting comic book it talks about about a hunter that was weak but became powerful after narrowly surviving an overwhelmingly powerful double dungeon that nearly wipes out his entire party, a mysterious program called the System chooses him as its sole player and in turn, gives him the extremely rare ability to level up in strength, possibly beyond any known limits.</small></p>
+</div>
 
 
 
@@ -179,7 +188,7 @@ input {
 		document.querySelector('#submit').addEventListener('click', Submit)
         const quantities = document.querySelectorAll(".quantities") 
          const prices = document.querySelectorAll(".price") 
-        const itemsList = ["Naruto Comic Book", "Venom Comic Book", "Spider Man Comic Book"]
+        const itemsList = ["Naruto Comic Book", "Venom Comic Book", "Spider Man Comic Book", "Solo leveling,Comic book"]
   
 		
 		
